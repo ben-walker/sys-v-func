@@ -1,4 +1,4 @@
-EXE = sys-v-func
+EXE = unixio
 
 SRC_DIR = src
 OBJ_DIR = build
