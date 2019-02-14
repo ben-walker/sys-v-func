@@ -1,0 +1,24 @@
+Using Unix I/O system calls to read 1 byte per call from filename with read.
+Elapsed time:   1526279
+Using C functions to read 1 byte per call from filename with fgetc.
+Elapsed time:   54825
+Using Unix I/O system calls to read 256 bytes per call from filename with read.
+Elapsed time:   6294
+Using C functions to read 256 bytes per call from filename with fread.
+Elapsed time:   893
+Using Unix I/O system calls to read 512 bytes per call from filename with read.
+Elapsed time:   3121
+Using C functions to read 512 bytes per call from filename with fread.
+Elapsed time:   728
+Using Unix I/O system calls to read 1024 bytes per call from filename with read.
+Elapsed time:   1659
+Using C functions to read 1024 bytes per call from filename with fread.
+Elapsed time:   669
+Using Unix I/O system calls to read 2048 bytes per call from filename with read.
+Elapsed time:   915
+Using C functions to read 2048 bytes per call from filename with fread.
+Elapsed time:   691
+Using Unix I/O system calls to read 4096 bytes per call from filename with read.
+Elapsed time:   536
+Using C functions to read 4096 bytes per call from filename with fread.
+Elapsed time:   642
