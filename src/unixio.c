@@ -20,8 +20,8 @@ void describeUsage(const char *file, int bytes, int unixCall) {
       ? "Using Unix I/O system calls to read"
       : "Using C functions to read";
    const char *byteTemplate = bytes == 1
-      ? "%d byte from %s"
-      : "%d bytes from %s";
+      ? "%d byte per call from %s"
+      : "%d bytes per call from %s";
    char byteStatement[256];
    snprintf(byteStatement, sizeof(byteStatement), byteTemplate, bytes, file);
    const char *readStatement = unixCall == 1
