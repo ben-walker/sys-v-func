@@ -1,0 +1,6 @@
+Model: MacBook Air (13-inch, Early 2015)
+CPU: 1.6 GHz Intel Core i5
+RAM: 8 GB 1600 MHz DDR3
+Hard Disk: 121 GB Flash Storage
+OS: macOS Mojave 10.14.3
+VirtualBox Version: 6.0.4
