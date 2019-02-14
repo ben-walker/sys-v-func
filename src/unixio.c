@@ -33,7 +33,7 @@ void describeUsage(const char *file, int bytes, int unixCall) {
 }
 
 int main(int argc, const char *argv[]) {
-   int bytes = 0, unixCall = 0;
+   int bytes = 0, unixCall = 0, duration = 0;
    const char *file = getArgForOpt(argc, argv, FILE_OPT);
 
    if (
@@ -49,12 +49,10 @@ int main(int argc, const char *argv[]) {
       exit(EXIT_FAILURE);
    describeUsage(file, bytes, unixCall);
 
-   startTimer();
    if (unixCall == 1)
-      unixReadFile(file, bytes);
+      duration = unixReadFile(file, bytes);
    else
-      cReadFile(file, bytes);
-   int duration = stopTimer();
+      duration = cReadFile(file, bytes);
    printf("Elapsed time:   %d\n", duration);
    return 0;
 }
