@@ -1,5 +1,6 @@
 #include "args.h"
 #include "numbers.h"
+#include "validation.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,7 +10,6 @@ const char *TYPE_OPT = "-t";
 
 void incorrectUsage(const char *programName) {
    fprintf(stderr, "Usage: %s %s filename %s bytes %s callType\n", programName, FILE_OPT, BYTE_OPT, TYPE_OPT);
-   exit(EXIT_FAILURE);
 }
 
 void describeUsage(const char *file, int bytes, int unixCall) {
@@ -30,14 +30,18 @@ void describeUsage(const char *file, int bytes, int unixCall) {
 }
 
 int main(int argc, const char *argv[]) {
-   int bytes, unixCall;
+   int bytes = 0, unixCall = 0;
    const char *file = getArgForOpt(argc, argv, FILE_OPT);
-   if (file == NULL)
+   if (
+      file == NULL ||
+      convertToNum(getArgForOpt(argc, argv, BYTE_OPT), &bytes) == EXIT_FAILURE ||
+      convertToNum(getArgForOpt(argc, argv, TYPE_OPT), &unixCall) == EXIT_FAILURE
+   ) {
       incorrectUsage(argv[0]);
-   if (convertToNum(getArgForOpt(argc, argv, BYTE_OPT), &bytes) == EXIT_FAILURE)
-      incorrectUsage(argv[0]);
-   if (convertToNum(getArgForOpt(argc, argv, TYPE_OPT), &unixCall) == EXIT_FAILURE)
-      incorrectUsage(argv[0]);
+      exit(EXIT_FAILURE);
+   }
+   if (argsInvalid(file, bytes, unixCall))
+      exit(EXIT_FAILURE);
    describeUsage(file, bytes, unixCall);
    return 0;
 }
