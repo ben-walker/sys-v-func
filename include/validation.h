@@ -1,3 +1,10 @@
+/**
+ * Ben Walker
+ * CIS*3110
+ * 
+ * Library to validate command line arguments
+ */
+
 #ifndef VALIDATION_
 #define VALIDATION_
 

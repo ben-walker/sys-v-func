@@ -1,3 +1,10 @@
+/**
+ * Ben Walker
+ * CIS*3110
+ * 
+ * Library to convert a string to an integer
+ */
+
 #ifndef NUMBERS_
 #define NUMBERS_
 
