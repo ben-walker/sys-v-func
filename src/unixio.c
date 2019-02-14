@@ -55,6 +55,6 @@ int main(int argc, const char *argv[]) {
    else
       cReadFile(file, bytes);
    int duration = stopTimer();
-
+   printf("Elapsed time:   %d\n", duration);
    return 0;
 }
