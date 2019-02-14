@@ -32,6 +32,7 @@ void describeUsage(const char *file, int bytes, int unixCall) {
 int main(int argc, const char *argv[]) {
    int bytes = 0, unixCall = 0;
    const char *file = getArgForOpt(argc, argv, FILE_OPT);
+
    if (
       file == NULL ||
       convertToNum(getArgForOpt(argc, argv, BYTE_OPT), &bytes) == EXIT_FAILURE ||
@@ -40,8 +41,10 @@ int main(int argc, const char *argv[]) {
       incorrectUsage(argv[0]);
       exit(EXIT_FAILURE);
    }
+
    if (argsInvalid(file, bytes, unixCall))
       exit(EXIT_FAILURE);
    describeUsage(file, bytes, unixCall);
+
    return 0;
 }
