@@ -2,6 +2,8 @@
 #include "numbers.h"
 #include "validation.h"
 #include "timer.h"
+#include "cFiling.h"
+#include "unixFiling.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -48,7 +50,11 @@ int main(int argc, const char *argv[]) {
    describeUsage(file, bytes, unixCall);
 
    startTimer();
-   stopTimer();
+   if (unixCall == 1)
+      unixReadFile(file, bytes);
+   else
+      cReadFile(file, bytes);
+   int duration = stopTimer();
 
    return 0;
 }
