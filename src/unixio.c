@@ -1,6 +1,7 @@
 #include "args.h"
 #include "numbers.h"
 #include "validation.h"
+#include "timer.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -45,6 +46,9 @@ int main(int argc, const char *argv[]) {
    if (argsInvalid(file, bytes, unixCall))
       exit(EXIT_FAILURE);
    describeUsage(file, bytes, unixCall);
+
+   startTimer();
+   stopTimer();
 
    return 0;
 }
