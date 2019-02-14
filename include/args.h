@@ -1,6 +1,6 @@
 #ifndef ARGS_
 #define ARGS_
 
-char *getTargetFile(int argc, const char *argv[]);
+const char *getArgForOpt(int argc, const char *argv[], const char *opt);
 
 #endif // ARGS_

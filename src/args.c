@@ -1,11 +1,8 @@
 #include "args.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
-const char *FILE_ARG = "-f";
-
-int indexOfOption(int argc, const char *argv[], const char *arg) {
+int indexOfOpt(int argc, const char *argv[], const char *arg) {
    int i = 0;
    for (; i < argc; i += 1)
       if (strcmp(argv[i], arg) == 0)
@@ -15,14 +12,9 @@ int indexOfOption(int argc, const char *argv[], const char *arg) {
       : -1;
 }
 
-char *getTargetFile(int argc, const char *argv[]) {
-   int index = indexOfOption(argc, argv, FILE_ARG);
-   if (index == -1)
-      return NULL;
-   char *target = strdup(argv[index]);
-   if (!target) {
-      perror("strdup");
-      exit(EXIT_FAILURE);
-   }
-   return target;
+const char *getArgForOpt(int argc, const char *argv[], const char *opt) {
+   int index = indexOfOpt(argc, argv, opt);
+   return index == -1
+      ? NULL
+      : argv[index];
 }
