@@ -4,3 +4,17 @@ RAM: 8 GB 1600 MHz DDR3
 Hard Disk: 121 GB Flash Storage
 OS: macOS Mojave 10.14.3
 VirtualBox Version: 6.0.4
+
+The results of this testing are pretty interesting. C has a clear advantage when
+the number of bytes read is small (> 1,000,000 microseconds faster for 1 byte),
+but C's performance does not dramatically improve as the number of bytes increases,
+unlike Unix. Unix makes dramatic performance improvements at almost every testing
+increment; for instance the run time is more than halved when moving from 256 bytes
+to 512 bytes. C, on the otherhand, stays in a tight range of decency, only ever
+improving by about 100 microseconds as the byte total is upped. In fact, by the
+time the byte count is at 4096, Unix manages to overtake C, reading the file about
+100 microseconds faster.
+
+In conclusion, I'd say that if you're looking to read a file line-by-line, or in small
+chunks, C will probably be much faster that the Unix alternative. But, if you want to read
+a file in large pieces (> 4096 bytes at a time), Unix system calls might actually outpace C.
