@@ -27,7 +27,12 @@ const char *TYPE_OPT = "-t"; // option that must precede the "call type" argumen
  * Prints out correct usage statement for the program
  */
 void incorrectUsage(const char *programName) {
-   fprintf(stderr, "Usage: %s %s filename %s bytes %s callType\n", programName, FILE_OPT, BYTE_OPT, TYPE_OPT);
+   fprintf(stderr, "Usage: %s %s filename %s bytes %s callType\n"
+      "  filename: the name of the file to read\n"
+      "  bytes: the number of bytes to read from filename until EOF is reached\n"
+      "     Must be greater than 0\n"
+      "  callType: 0 (to read filename with C library functions) or 1 (to read filename with Unix system calls)\n",
+      programName, FILE_OPT, BYTE_OPT, TYPE_OPT);
 }
 
 /**
